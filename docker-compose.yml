@@ -1,0 +1,20 @@
+services:
+  ditital-trees-be:
+    build: ./
+    ports:
+      - 3001:3001
+    volumes:
+      - ./:/app
+      - dt-node-modules:/app/node_modules
+  ditital-trees-postgres:
+    image: postgres:17.2
+    env_file:
+      - ./env/postgres.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - dt-pgdata:/var/lib/postgresql/data
+
+volumes:
+  dt-node-modules:
+  dt-pgdata:
