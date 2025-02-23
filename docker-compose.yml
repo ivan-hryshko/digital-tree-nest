@@ -4,8 +4,8 @@ services:
     ports:
       - 3001:3001
     volumes:
-      - ./:/app
       - dt-node-modules:/app/node_modules
+      - ./:/app
   ditital-trees-postgres:
     image: postgres:17.2
     env_file:
